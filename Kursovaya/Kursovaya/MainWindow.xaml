@@ -1,0 +1,53 @@
+﻿<Window x:Class="Kursovaya.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Kursovaya"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="Окно заметок" Height="600" Width="800" ResizeMode="CanMinimize">
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontFamily" Value="Segoe Print" />
+            <Setter Property="Background" Value="#FFF3EBBA" />
+            <Setter Property="Foreground" Value="Black" />
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="Segoe Print" />
+            <Setter Property="Background" Value="RoyalBlue" />
+            <Setter Property="Foreground" Value="White" />
+        </Style>
+        <Style TargetType="ListBox">
+            <Setter Property="FontFamily" Value="Open Sans" />
+            <Setter Property="Background" Value="#FFF7F2D7" />
+        </Style>
+        <Style TargetType="Grid">
+            <Setter Property="Background" Value="RoyalBlue" />
+        </Style>
+    </Window.Resources>
+    <Grid ShowGridLines="False">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="410*"/>
+            <ColumnDefinition Width="391*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition Height="0.6*"/>
+            <RowDefinition Height="3.5*"/>
+        </Grid.RowDefinitions>
+        <Border BorderThickness="0 0 0 2" BorderBrush="CornflowerBlue" Grid.ColumnSpan="2">
+            <TextBlock TextAlignment="Center" FontSize="23" Grid.ColumnSpan="1" Grid.RowSpan="1" Margin="0,-7,0,0" RenderTransformOrigin="0.5,0.241" >           
+              Все заметки
+            </TextBlock>
+        </Border>
+        <TextBlock FontSize="15.5" TextAlignment="Center" Margin="165,5,165,0" Grid.Row="1" VerticalAlignment="Top" Grid.ColumnSpan="2" Height="28">Поиск:</TextBlock>
+        <TextBox x:Name="nameSearch" Grid.Row="1" Height="25" TextWrapping="Wrap" Text="" Width="442" Margin="179,33,179,22" TextChanged="SearchPanel" Grid.ColumnSpan="2"/>
+        <ListBox x:Name="fieldOfWrites" Grid.Row="2" BorderThickness="0 2 0 0" BorderBrush="CornflowerBlue" Grid.ColumnSpan="2">
+        </ListBox>
+        <Canvas Grid.RowSpan="3" Height="600" VerticalAlignment="Bottom" Grid.ColumnSpan="2" >
+            <Button x:Name="newWrite" Content="Создать заметку" Canvas.Bottom="20" Canvas.Left="321" Click="newWrite_Click" Height="59" FontSize="14" BorderThickness="2" Canvas.Top="510" Width="158" Foreground="White" Background="RoyalBlue"/>
+        </Canvas>
+    </Grid>
+</Window>
